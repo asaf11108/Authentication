@@ -16,7 +16,11 @@
     "nodemon": "^1.14.6"
   },
   "dependencies": {
+    "bcrypt": "^2.0.0",
     "concurrently": "^3.5.1",
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "helmet-csp": "^2.7.0",
+    "jsonwebtoken": "^8.2.1",
+    "mysql": "^2.15.0"
   }
 }

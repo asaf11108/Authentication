@@ -1,0 +1,106 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add bcrypt
+
+PATH: 
+  C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\ASAF\bin;C:\Intel\OpenCL\sdk\bin\x64;C:\Intel\OpenCL\sdk\bin\x86;C:\Intel\OpenCL\sdk\bin\Pin;C:\Intel\OpenCL\sdk\bin\GTPin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\Microsoft SQL Server\110\Tools\Binn;C:\Program Files (x86)\gradle-3.1\bin;C:\Program Files\TortoiseHg;C:\Program Files\Java\jdk1.8.0_92\bin;C:\Program Files (x86)\Smart Projects\IsoBuster;C:\Program Files\Intel\WiFi\bin;C:\Program Files\Common Files\Intel\WirelessCommon;C:\Program Files\apache-ant-1.10.1\bin;C:\Program Files\MATLAB\R2017a\runtime\win64;C:\Program Files\MATLAB\R2017a\bin;C:\adb\adb.exe;C:\Program Files (x86)\AMD APP SDK\3.0\bin\x86_64;C:\Program Files (x86)\AMD APP SDK\3.0\bin\x86;C:\Users\ASAF\AppData\Local\Android\sdk\patform-tools;C:\Users\ASAF\AppData\Local\Programs\Python\Python36-32\Scripts;C:\Program Files\dotnet;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\opencv\build\x64\vc14\bin;C:\Program Files\nodejs;C:\Program Files\PuTTY;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\Git\cmd;C:\Program Files (x86)\Yarn\bin;C:\Program Files (x86)\MySQL\MySQL Utilities 1.6;C:\Users\ASAF\AppData\Local\Microsoft\WindowsApps;C:\Users\ASAF\AppData\Roaming\npm;C:\Users\ASAF\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft VS Code\bin;C:\Users\ASAF\AppData\Local\Programs\Fiddler;C:\Users\ASAF\AppData\Local\Yarn\bin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  8.9.4
+
+Platform: 
+  win32 x64
+
+npm manifest: 
+  {
+    "name": "reactexpress",
+    "version": "1.0.0",
+    "description": "Starter kit for creating React and Express apps",
+    "main": "server.js",
+    "scripts": {
+      "client-install": "cd client && npm install",
+      "start": "node server.js",
+      "server": "nodemon server.js",
+      "client": "npm start --prefix client",
+      "dev": "concurrently \"npm run server\" \"npm run client\""
+    },
+    "author": "Brad Traversy",
+    "license": "MIT",
+    "devDependencies": {
+      "nodemon": "^1.14.6"
+    },
+    "dependencies": {
+      "concurrently": "^3.5.1",
+      "express": "^4.16.2",
+      "mysql": "^2.15.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: C:\Users\ASAF\projects\react_express1\node_modules\bcrypt: Command failed.
+  Exit code: 1
+  Command: C:\WINDOWS\system32\cmd.exe
+  Arguments: /d /s /c node-pre-gyp install --fallback-to-build
+  Directory: C:\Users\ASAF\projects\react_express1\node_modules\bcrypt
+  Output:
+  node-pre-gyp info it worked if it ends with ok
+  node-pre-gyp info using node-pre-gyp@0.9.0
+  node-pre-gyp info using node@8.9.4 | win32 | x64
+  node-pre-gyp info check checked for "C:\Users\ASAF\projects\react_express1\node_modules\bcrypt\lib\binding\bcrypt_lib.node" (not found)
+  node-pre-gyp http GET https://github.com/kelektiv/node.bcrypt.js/releases/download/v2.0.0/bcrypt_lib-v2.0.0-node-v57-win32-x64-unknown.tar.gz
+  node-pre-gyp http 302 https://github.com/kelektiv/node.bcrypt.js/releases/download/v2.0.0/bcrypt_lib-v2.0.0-node-v57-win32-x64-unknown.tar.gz
+  node-pre-gyp ERR! Tried to download(302): https://github.com/kelektiv/node.bcrypt.js/releases/download/v2.0.0/bcrypt_lib-v2.0.0-node-v57-win32-x64-unknown.tar.gz 
+  node-pre-gyp ERR! Pre-built binaries not found for bcrypt@2.0.0 and node@8.9.4 (node-v57 ABI, unknown) (falling back to source compile with node-gyp) 
+  node-pre-gyp http 302 status code downloading tarball https://github.com/kelektiv/node.bcrypt.js/releases/download/v2.0.0/bcrypt_lib-v2.0.0-node-v57-win32-x64-unknown.tar.gz 
+  
+  C:\Users\ASAF\projects\react_express1\node_modules\bcrypt>if not defined npm_config_node_gyp (node "C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin\\..\..\node_modules\node-gyp\bin\node-gyp.js" clean )  else (node "" clean ) 
+  gyp info it worked if it ends with ok
+  gyp info using node-gyp@3.6.2
+  gyp info using node@8.9.4 | win32 | x64
+  gyp info ok 
+  
+  C:\Users\ASAF\projects\react_express1\node_modules\bcrypt>if not defined npm_config_node_gyp (node "C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin\\..\..\node_modules\node-gyp\bin\node-gyp.js" configure --fallback-to-build --module=C:\Users\ASAF\projects\react_express1\node_modules\bcrypt\lib\binding\bcrypt_lib.node --module_name=bcrypt_lib --module_path=C:\Users\ASAF\projects\react_express1\node_modules\bcrypt\lib\binding --napi_version=1 --node_abi_napi=napi )  else (node "" configure --fallback-to-build --module=C:\Users\ASAF\projects\react_express1\node_modules\bcrypt\lib\binding\bcrypt_lib.node --module_name=bcrypt_lib --module_path=C:\Users\ASAF\projects\react_express1\node_modules\bcrypt\lib\binding --napi_version=1 --node_abi_napi=napi ) 
+  gyp info it worked if it ends with ok
+  gyp info using node-gyp@3.6.2
+  gyp info using node@8.9.4 | win32 | x64
+  gyp ERR! configure error 
+  gyp ERR! stack Error: Can't find Python executable "python", you can set the PYTHON env variable.
+  gyp ERR! stack     at PythonFinder.failNoPython (C:\Program Files\nodejs\node_modules\npm\node_modules\node-gyp\lib\configure.js:483:19)
+  gyp ERR! stack     at PythonFinder.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\node-gyp\lib\configure.js:508:16)
+  gyp ERR! stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\graceful-fs\polyfills.js:284:29
+  gyp ERR! stack     at FSReqWrap.oncomplete (fs.js:152:21)
+  gyp ERR! System Windows_NT 10.0.16299
+  gyp ERR! command "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\node_modules\\node-gyp\\bin\\node-gyp.js" "configure" "--fallback-to-build" "--module=C:\\Users\\ASAF\\projects\\react_express1\\node_modules\\bcrypt\\lib\\binding\\bcrypt_lib.node" "--module_name=bcrypt_lib" "--module_path=C:\\Users\\ASAF\\projects\\react_express1\\node_modules\\bcrypt\\lib\\binding" "--napi_version=1" "--node_abi_napi=napi"
+  gyp ERR! cwd C:\Users\ASAF\projects\react_express1\node_modules\bcrypt
+  gyp ERR! node -v v8.9.4
+  gyp ERR! node-gyp -v v3.6.2
+  gyp ERR! not ok 
+  node-pre-gyp ERR! build error 
+  node-pre-gyp ERR! stack Error: Failed to execute 'node-gyp.cmd configure --fallback-to-build --module=C:\Users\ASAF\projects\react_express1\node_modules\bcrypt\lib\binding\bcrypt_lib.node --module_name=bcrypt_lib --module_path=C:\Users\ASAF\projects\react_express1\node_modules\bcrypt\lib\binding --napi_version=1 --node_abi_napi=napi' (1)
+  node-pre-gyp ERR! stack     at ChildProcess.<anonymous> (C:\Users\ASAF\projects\react_express1\node_modules\node-pre-gyp\lib\util\compile.js:83:29)
+  node-pre-gyp ERR! stack     at emitTwo (events.js:126:13)
+  node-pre-gyp ERR! stack     at ChildProcess.emit (events.js:214:7)
+  node-pre-gyp ERR! stack     at maybeClose (internal/child_process.js:925:16)
+  node-pre-gyp ERR! stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
+  node-pre-gyp ERR! System Windows_NT 10.0.16299
+  node-pre-gyp ERR! command "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\ASAF\\projects\\react_express1\\node_modules\\node-pre-gyp\\bin\\node-pre-gyp" "install" "--fallback-to-build"
+  node-pre-gyp ERR! cwd C:\Users\ASAF\projects\react_express1\node_modules\bcrypt
+  node-pre-gyp ERR! node -v v8.9.4
+  node-pre-gyp ERR! node-pre-gyp -v v0.9.0
+  node-pre-gyp ERR! not ok 
+  Failed to execute 'node-gyp.cmd configure --fallback-to-build --module=C:\Users\ASAF\projects\react_express1\node_modules\bcrypt\lib\binding\bcrypt_lib.node --module_name=bcrypt_lib --module_path=C:\Users\ASAF\projects\react_express1\node_modules\bcrypt\lib\binding --napi_version=1 --node_abi_napi=napi' (1)
+      at ProcessTermError.MessageError (C:\Program Files (x86)\Yarn\lib\cli.js:186:110)
+      at new ProcessTermError (C:\Program Files (x86)\Yarn\lib\cli.js:226:113)
+      at ChildProcess.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:30281:17)
+      at emitTwo (events.js:126:13)
+      at ChildProcess.emit (events.js:214:7)
+      at maybeClose (internal/child_process.js:925:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
