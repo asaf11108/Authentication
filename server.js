@@ -1,7 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
-var csp = require('helmet-csp');
 
 const app = express();
 const saltRounds = 10;
@@ -15,42 +14,10 @@ const mySqlConnection = mysql.createConnection({
   database : 'express-cc'
 });
 
-app.use(csp({
-  // Specify directives as normal.
-  directives: {
-    defaultSrc: ["'self'", 'default.com'],
-    scriptSrc: ["'self'", "'unsafe-inline'"],
-    styleSrc: ['style.com'],
-    fontSrc: ["'self'", 'fonts.com'],
-    imgSrc: ['img.com', 'data:'],
-    sandbox: ['allow-forms', 'allow-scripts'],
-    reportUri: '/report-violation',
-    objectSrc: ["'none'"],
-    upgradeInsecureRequests: true,
-    workerSrc: false  // This is not set.
-  },
- 
-  // This module will detect common mistakes in your directives and throw errors
-  // if it finds any. To disable this, enable "loose mode".
-  loose: false,
- 
-  // Set to true if you only want browsers to report errors, not block them.
-  // You may also set this to a function(req, res) in order to decide dynamically
-  // whether to use reportOnly mode, e.g., to allow for a dynamic kill switch.
-  reportOnly: false,
- 
-  // Set to true if you want to blindly set all headers: Content-Security-Policy,
-  // X-WebKit-CSP, and X-Content-Security-Policy.
-  setAllHeaders: false,
- 
-  // Set to true if you want to disable CSP on Android where it can be buggy.
-  disableAndroid: false,
- 
-  // Set to false if you want to completely disable any user-agent sniffing.
-  // This may make the headers less compatible but it will be much faster.
-  // This defaults to `true`.
-  browserSniff: true
-}))
+app.use(function(req, res, next) {
+  res.setHeader("Content-Security-Policy", "script-src 'self'; style-src 'self");
+  return next();
+});
 
 app.get('/api/customers', verifyToken, (req, res) => {
   const customers = [
@@ -94,7 +61,7 @@ app.post('/api/acount/login', (req, res) => {
 const port = 5000;
 
 const server = app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  `Server running on port ${port}`;
   mySqlConnection.connect();
 });
 
