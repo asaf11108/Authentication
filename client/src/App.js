@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import LoginPage from './components/LoginPage';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import Routes from './routes';
 
 class App extends Component {
   render() {
@@ -13,9 +12,7 @@ class App extends Component {
           <h1 className="App-title">React Express MySql Authentication</h1>
         </header>
         <br/>
-        <Router>
-
-          </Router>
+        <Routes/>
       </div>
     );
   }

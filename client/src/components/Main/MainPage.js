@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import ReactTable from 'react-table';
 import "react-table/react-table.css";
+import Main from '../../services/MainService';
 
-class MainPage extends React.Component {
+class MainPage extends Component {
   constructor() {
     super();
     this.state = {
@@ -12,12 +13,7 @@ class MainPage extends React.Component {
   }
   
   componentDidMount() {
-    fetch('/api/customers', { 
-      method: 'get', 
-      headers: new Headers({
-        'Authorization': 'Bearer ' + localStorage.getItem("ACCESS_TOKEN")
-      })
-    })
+    Main.getCustomers()
     .then(res => res.json())
     .then(customers => this.setState({ customers }));
   }
