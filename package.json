@@ -17,10 +17,14 @@
   },
   "dependencies": {
     "bcrypt": "^2.0.0",
+    "body-parser": "^1.18.2",
     "concurrently": "^3.5.1",
     "express": "^4.16.2",
+    "express-validator": "^5.1.2",
     "helmet-csp": "^2.7.0",
     "jsonwebtoken": "^8.2.1",
-    "mysql": "^2.15.0"
+    "mysql": "^2.15.0",
+    "react-redux": "^5.0.7",
+    "redux-thunk": "^2.2.0"
   }
 }

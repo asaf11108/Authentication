@@ -1,10 +1,18 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
-var jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
+const bodyParser = require('body-parser');
+const { check, validationResult } = require('express-validator/check');
 
 const app = express();
 const saltRounds = 10;
 const tokenKey = "shhhhh";
+
+var customers = [
+  {id: 1, firstName: 'John', lastName: 'Doe'},
+  {id: 2, firstName: 'Brad1', lastName: 'Traversy'},
+  {id: 3, firstName: 'Mary', lastName: 'Swanson'},
+];
 
 const mysql      = require('mysql');
 const mySqlConnection = mysql.createConnection({
@@ -14,17 +22,17 @@ const mySqlConnection = mysql.createConnection({
   database : 'express-cc'
 });
 
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
+
 app.use(function(req, res, next) {
   res.setHeader("Content-Security-Policy", "script-src 'self'; style-src 'self");
   return next();
 });
 
 app.get('/api/customers', verifyToken, (req, res) => {
-  const customers = [
-    {id: 1, firstName: 'John', lastName: 'Doe'},
-    {id: 2, firstName: 'Brad1', lastName: 'Traversy'},
-    {id: 3, firstName: 'Mary', lastName: 'Swanson'},
-  ];
   jwt.verify(req.token, tokenKey, {expiresIn: '30s'}, (err, authData) => {
     if(err) {
       res.sendStatus(403);
@@ -55,6 +63,23 @@ app.post('/api/acount/login', (req, res) => {
       else
         res.status(400);
     });
+  });
+});
+
+
+app.post('/api/customers', verifyToken, (req, res) => {
+  // var fName = req.body.customer;
+  // console.log(fName);
+  jwt.verify(req.token, tokenKey, {expiresIn: '30s'}, (err, authData) => {
+    if(err) {
+      res.sendStatus(403);
+    } else if(authData.user.username != 'asaf'){
+      res.sendStatus(400);
+    } else {
+      const customerObj = {id: customers.length+1, ...req.body.customer};
+      customers.push(customerObj);
+      res.sendStatus(200);
+    }
   });
 });
 
