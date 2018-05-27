@@ -3,15 +3,7 @@ import { withRouter } from 'react-router-dom';
 import ReactTable from 'react-table';
 import "react-table/react-table.css";
 import Main from '../../services/MainService';
-import Redux from '../../Redux';
 
-import { connect } from "react-redux"
-import { increment, decrement } from '../../actions/CounterActions'
-
-const mapStateToProps = (state) => {
-  console.log()
-  counters: state.counterReducer
-}
 
 class MainPage extends Component {
   constructor(props) {
@@ -25,11 +17,6 @@ class MainPage extends Component {
     Main.getCustomers()
       .then(res => res.json())
       .then(customers => this.setState({ customers }));
-  }
-
-  handleClick() {
-    let { dispatch } = this.props;
-    dispatch(increment())
   }
 
   render() {
@@ -51,12 +38,10 @@ class MainPage extends Component {
           </div>
         </div>
         <ReactTable data={this.state.customers} columns={columns} className="-striped -highlight text-center" defaultPageSize={5} />
-        <button onClick={() => this.handleClick()}>INCREASE</button>
-        <p>{this.props.counters}</p>
       </div>
     );
   }
 }
 
 
-export default withRouter(connect(mapStateToProps)(MainPage));
+export default withRouter(MainPage);
