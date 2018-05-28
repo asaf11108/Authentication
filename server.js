@@ -33,7 +33,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/api/customers', verifyToken, (req, res) => {
-  jwt.verify(req.token, tokenKey, {expiresIn: '30s'}, (err, authData) => {
+  jwt.verify(req.token, tokenKey, (err, authData) => {
     if(err) {
       res.sendStatus(403);
     } else if(authData.user.username != 'asaf'){
@@ -57,7 +57,7 @@ app.post('/api/acount/login', (req, res) => {
       // res == true
       if(ans){
         delete user.password;
-        const token = jwt.sign({user}, tokenKey);
+        const token = jwt.sign({user}, tokenKey, {expiresIn: "10s"});
         res.json({token});
       }
       else
@@ -70,7 +70,7 @@ app.post('/api/acount/login', (req, res) => {
 app.post('/api/customers', verifyToken, (req, res) => {
   // var fName = req.body.customer;
   // console.log(fName);
-  jwt.verify(req.token, tokenKey, {expiresIn: '30s'}, (err, authData) => {
+  jwt.verify(req.token, tokenKey, (err, authData) => {
     if(err) {
       res.sendStatus(403);
     } else if(authData.user.username != 'asaf'){
