@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 const { check, validationResult } = require('express-validator/check');
+const sanitize = require('sanitize-html');
 
 const app = express();
 const saltRounds = 10;
